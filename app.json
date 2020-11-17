@@ -1,5 +1,6 @@
 {
   "expo": {
+    
     "name": "plasma-4life",
     "slug": "plasma-4life",
     "version": "1.0.0",
@@ -21,6 +22,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android":{
+      "package":"com.plasma4life.beta",
+      "versionCode":1
     }
   }
 }

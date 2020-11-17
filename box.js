@@ -8,7 +8,7 @@ export default function Box({name,onPress}){
       <View style={styles.box}> 
       <Input 
       style={styles.boxtext} 
-      inputContainerStyle={{borderBottomWidth:0}}
+      inputContainerStyle={{borderBottomWidth:0,justifyContent:"center"}}
       placeholder={name}    
       />
      </View>
@@ -27,9 +27,10 @@ export default function Box({name,onPress}){
         
       },
       boxtext:{
-        
+        alignSelf:"center",
         paddingLeft:20,
         fontSize:16,
+        justifyContent:"center"
         
     
       },

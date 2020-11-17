@@ -85,7 +85,7 @@ export default function LoginScreen({navigation}){
     
   
   </View>
-  )
+  );
 
 
 }
@@ -99,7 +99,8 @@ export default function LoginScreen({navigation}){
     loginpage:{
       flex:1,
       alignItems:"center",
-      backgroundColor:"#800000"
+      backgroundColor:"#800000",
+      
       
     },
     loginheader:{
@@ -113,6 +114,7 @@ export default function LoginScreen({navigation}){
     },
     place:{
       width:250,
+      
     },
     placeholder:{
       fontSize:15,

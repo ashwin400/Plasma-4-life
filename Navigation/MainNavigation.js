@@ -6,7 +6,7 @@ import Profile from "../Profilescreen"
 import { MaterialIcons } from '@expo/vector-icons';
 import Mainscreen from "../Mainscreen";
 import Discussion from "../DiscussionScreen";
-import Search from "../SearchScreen";
+import HomePage from "../HomeScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -17,13 +17,13 @@ export default function BottomNav(){
   return (
     
     <Tab.Navigator initialRouteName="Main">
-      <Tab.Screen name="Main" component={Mainscreen}
+      <Tab.Screen name="Main" component={HomePage}
       options={{
         tabBarIcon:()=>(
           <AntDesign name="home" size={24} color="black" />
         ) }}
         />
-      <Tab.Screen name="Search" component={Search} 
+      <Tab.Screen name="Search" component={Mainscreen} 
         options={{
         tabBarIcon:()=>(
           <MaterialIcons name="search" size={24} color="black" />

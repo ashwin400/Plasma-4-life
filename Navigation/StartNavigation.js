@@ -13,7 +13,8 @@ export default function Startnav(){
   const Stack = createStackNavigator();
     return (
         
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Home"
+        >
             <Stack.Screen name="Home" component={StartScreen} options={{title:'',headerStyle: {
                 backgroundColor: '#800000',}}}/>
             <Stack.Screen name="Login" component={LoginScreen} options={{title:'',headerStyle: {
