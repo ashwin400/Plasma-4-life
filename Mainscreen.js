@@ -7,9 +7,10 @@ import { AppLoading } from 'expo';
 import { useFonts } from 'expo-font'
 import DropDownPicker from 'react-native-dropdown-picker';
 import ScrollCard from "./scrollCard"
-
+import { LinearGradient } from 'expo-linear-gradient';
 import MainCard from "./MainCard"
-import Carousel from 'react-native-snap-carousel';
+import Carousel , { Pagination } from 'react-native-snap-carousel';
+import Dots from 'react-native-dots-pagination';
 
 const data = [
   {
@@ -62,9 +63,9 @@ const carddata=[
   }
 ];
 
+
 export default function Mainscreen({navigation}){
-  const [value, setValue] = useState(null);
-  const [items, setItems] = useState();
+  const [active ,setActive]=useState(0);
   const [fontsLoaded] = useFonts({'montserrat':  require('./Montserrat-Regular.ttf'),})
   const renderItem = ({ item }) => (
     <ScrollCard 
@@ -80,26 +81,54 @@ export default function Mainscreen({navigation}){
      />
   );
   
+
     
   
     if (!fontsLoaded) {
     return <AppLoading />;
   } else {
+    
     return(
+      
     
      
    <View style={{backgroundColor:"white",flex: 1,}}>
-    <StatusBar backgroundColor="#800000"/>
+    <StatusBar backgroundColor="#c31432"/>
     <View style={styles.redstyle}>
+    <LinearGradient
+        // Background Linear Gradient
+        colors={['#c31432',"#240b36"]}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height:"100%",
+          borderBottomLeftRadius:20,
+          borderBottomRightRadius:20
+        }}/>
     <View style={{ height:0.4*deviceHeight,}}>
-
+    <Dots 
+    length={2} 
+    active={active} 
+    passiveColor={'rgba(255, 255, 255, 0.4)'} 
+    activeColor={'rgba(255, 255, 255, 0.9)'}
+    activeDotWidth={8}
+    activeDotHeight={8}
+    passiveDotWidth={5}
+    passiveDotHeight={5}
+    paddingVertical={7}
+    />
     <Carousel
               
               data={carddata}
               renderItem={renderCard}
               sliderWidth={deviceWidth}
               itemWidth={0.9*deviceWidth}
+              onSnapToItem={(index)=> setActive(index)}
             />
+            
+            
     </View>
     </View>
     

@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 profilescreenselection:{
 backgroundColor:"white",
 height:0.075*deviceHeight,
-marginBottom:1,
+marginBottom:1.5,
 alignItems:"center",
 flexDirection:"row",
 padding:20

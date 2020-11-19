@@ -4,7 +4,7 @@ import { Alert, Dimensions,SafeAreaView,StyleSheet, Text, View,ToastAndroid, } f
 import SmallTab from "./Smalltabselection"
 import * as firebase from 'firebase';
 import AuthContext from './authentication/context';
-
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 var firebaseConfig = {
@@ -53,6 +53,17 @@ export default function Profile(){
         return(
           <View style={{flex:1}}>
           <View style={styles.redstyle}>
+          <LinearGradient
+        // Background Linear Gradient
+        colors={['#c31432',"#240b36"]}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height:"100%",
+        
+        }}/>
             <View style={styles.profileview}>
             </View>
             <Text style={styles.profilename}>{user.email}</Text>

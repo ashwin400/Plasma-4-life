@@ -5,6 +5,9 @@ import Mainbutton from '../mainscreenbutton/Mainbutton';
 import { Input } from 'react-native-elements';
 import * as firebase from 'firebase';
 import AuthContext from "../authentication/context"
+import { LinearGradient } from 'expo-linear-gradient';
+import { Hoshi } from 'react-native-textinput-effects';
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyDIRm59fQWScI63HFDEQQWRI1LXP61O7-U",
@@ -73,33 +76,53 @@ export default function LoginScreen({navigation}){
   }
 
   return(
+    <ScrollView  contentContainerStyle={{
+      flex: 1
+   }}> 
     <View style={styles.loginpage}>
+    <LinearGradient
+        // Background Linear Gradient
+        colors={['#c31432',"#240b36"]}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height:"100%"
+        }}/>
   <Text style={styles.loginheader}>
   Login
   </Text>
   <View style={styles.place}>
 
-  <Input
-    style={styles.placeholder}
-    placeholder={"Email ID"}
-    inputContainerStyle={{borderBottomWidth:0}}
+  
+   <Hoshi
+     label={'Email Address'}
+    borderColor={'#b76c94'}
+    borderHeight={3}
+    inputPadding={16}
     onChangeText={text => setEmail(text)}
-    
-    
   />
-  <Input
-    style={styles.placeholder}
-    placeholder={"Password"}
+  <Hoshi
+     label={'Password'}
+     style={{marginTop:10}}
+    borderColor={'#b76c94'}
+    borderHeight={3}
+    inputPadding={16}
+   
     onChangeText={text => setPassword(text)}
-    inputContainerStyle={{borderBottomWidth:0}}
     secureTextEntry={true}
   />
-  
+ 
   </View>
-  <Mainbutton name="Submit" onPress={()=>loginuser(email,password)}/>
+  <Mainbutton name="Submit" 
+  onPress={()=>loginuser(email,password)}
+    style={{marginTop:60}}
+  />
     
   
   </View>
+  </ScrollView>
   );
 
 
@@ -117,31 +140,21 @@ export default function LoginScreen({navigation}){
       backgroundColor:"#800000",
       
       
+      
     },
     loginheader:{
       color:'white',
       alignItems:"center",
-      marginTop:55,
+      marginTop:150,
       paddingBottom:30,
       fontFamily: 'opensans',
-      fontSize:40,
+      fontSize:60,
       
     },
     place:{
       width:250,
       
     },
-    placeholder:{
-      fontSize:15,
-      color:"white",
-      alignItems:"center",
-      height: 40, 
-      borderColor: 'gray', 
-      borderWidth:2,
-      borderRadius:20, 
-      marginTop: 15,
-      paddingLeft:20,
-      },
-    
+   
   
   });

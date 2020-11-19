@@ -18,7 +18,7 @@ export default function Box({name,onPress}){
   const styles = StyleSheet.create({
       
       box:{
-        marginTop:15,
+        marginTop:12,
         width:"95%",
         alignSelf:"center",
         borderRadius:20,

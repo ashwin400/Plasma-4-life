@@ -6,7 +6,8 @@ import { Input } from 'react-native-elements';
 import * as firebase from 'firebase';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthContext from "../authentication/context"
-
+import { LinearGradient } from 'expo-linear-gradient';
+import { Hoshi } from 'react-native-textinput-effects';
 
 export default function RegisterScreen(){
  
@@ -66,42 +67,64 @@ export default function RegisterScreen(){
    }}> 
 
     <View style={styles.loginpage}>
+    <LinearGradient
+        // Background Linear Gradient
+        colors={['#c31432',"#240b36"]}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height:"100%"
+        }}/>
+    
     <Text style={styles.loginheader}>
     Register
     </Text>
     <View style={styles.place}>
-
-    <Input
-      style={styles.placeholder}
-      placeholder={'Full name'}
-      onChangeText={text => setFirst(text)}
-      inputContainerStyle={{borderBottomWidth:0}}
-      
-    />
-    
-    <Input
-      placeholder={'Email ID'}
-      style={styles.placeholder}
-      onChangeText={text => setEmail(text)}
-      inputContainerStyle={{borderBottomWidth:0}}
-    />
-    <Input
-      placeholder={'Set Password'}
-      style={styles.placeholder}
-      onChangeText={text => setPassword(text)}
-      secureTextEntry={true}
-      inputContainerStyle={{borderBottomWidth:0}}
-    />
-    <Input
-      placeholder={'Phone Number'}
-      style={styles.placeholder}
-      onChangeText={text => setPno(text)}
-      keyboardType="numeric"
-      maxLength={10}
-      inputContainerStyle={{borderBottomWidth:0}}
-    />
+     <Hoshi
+     label={'Full name'}
+    borderColor={'#b76c94'}
+    borderHeight={3}
+    inputPadding={16}
+    onChangeText={text => setFirst(text)}
+    style={{marginTop:10}}
+  />
+   
+    <Hoshi
+     label={'Email Address'}
+    borderColor={'#b76c94'}
+    borderHeight={3}
+    inputPadding={16}
+    onChangeText={text => setEmail(text)}
+    style={{marginTop:10}}
+  />
+   <Hoshi
+     label={'Set Password'}
+     style={{marginTop:10}}
+    borderColor={'#b76c94'}
+    borderHeight={3}
+    inputPadding={16}
+    onChangeText={text => setPassword(text)}
+    secureTextEntry={true}
+    style={{marginTop:10}}
+  />
+   <Hoshi
+     label={'Phone Number'}
+    borderColor={'#b76c94'}
+    borderHeight={3}
+    inputPadding={16}
+    onChangeText={text => setPno(text)}
+    keyboardType="numeric"
+    maxLength={10}
+    style={{marginTop:10}}
+  />
+   
     </View>
-    <Mainbutton name="Submit" onPress={()=>signupuser(email,password,pno,first)}/>
+    <Mainbutton name="Submit" 
+    onPress={()=>signupuser(email,password,pno,first)}
+      style={{marginTop:60}}
+    />
     </View>
       
     </ScrollView>
@@ -121,25 +144,14 @@ export default function RegisterScreen(){
     loginheader:{
       color:'white',
       alignItems:"center",
-      marginTop:20,
+      marginTop:120,
       paddingBottom:30,
       fontFamily: 'opensans',
-      fontSize:40,
+      fontSize:50,
     },
     place:{
       width:250,
     },
-    placeholder:{
-      fontSize:15,
-      color:"white",
-      alignItems:"center",
-      height: 40, 
-      borderColor: 'gray', 
-      borderWidth:2,
-      borderRadius:20, 
-      marginTop: 15,
-      paddingLeft:20,
-      },
     
   
   });

@@ -13,11 +13,14 @@ export default function ScrollCard({title,location,bloodgroup}){
       height:80,
       alignSelf:"center",
       borderRadius:25,
-      marginVertical: 8,
+      marginVertical: 10,
       flexDirection:"row",
       justifyContent:"space-between",
-      alignItems:"center"
+      alignItems:"center",
+      elevation:3
+      
       }}>
+     
 <View style={{alignItems:"center",paddingLeft:15,}}>
 <Text style={{
     fontSize:19,
@@ -30,11 +33,13 @@ export default function ScrollCard({title,location,bloodgroup}){
 </Text>
 </View>
 <View style={{alignItems:"center"}}>
-
+<View style={{height:50,backgroundColor:"#9f1721",width:40,position:"absolute",bottom:0,justifyContent:"center",borderRadius:15,alignItems:"center",}}>
 <Feather name="droplet" size={24} color="black" />
 <Text>
     {bloodgroup}
 </Text>
+
+</View>
 </View>
 <TouchableOpacity 
 style={{alignItems:"center",alignSelf:"center"}} 

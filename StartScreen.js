@@ -12,7 +12,7 @@ import { useFonts } from 'expo-font'
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 import LoginScreen from "./auth/LoginScreen"
 import RegisterScreen from "./auth/SignupScreen"
-
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function StartScreen({ navigation }){
     const [fontsLoaded] = useFonts({
@@ -22,6 +22,18 @@ export default function StartScreen({ navigation }){
     } else {
       return(
       <View style={styles.container}>
+       <LinearGradient
+        // Background Linear Gradient
+        colors={['#c31432',"#240b36"]}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          height:"100%"
+        }}
+        
+      />
        <View style={styles.logo}>
        <Entypo name="drop" size={42} color="white" />
        <Text style={styles.textstyle}>
@@ -30,7 +42,7 @@ export default function StartScreen({ navigation }){
        </View>
        <View style={styles.buttonscontainer}>
        <Mainbutton name="Login" onPress={()=>navigation.navigate('Login')}/>
-       <Mainbutton name="Register" onPress={()=>navigation.navigate('Register')}/>
+       <Mainbutton name="Register" onPress={()=>navigation.navigate('Register')} style={{marginTop:35}}/>
        </View>
        <StatusBar style="auto" />
        <TouchableOpacity>
@@ -54,16 +66,17 @@ export default function StartScreen({ navigation }){
     
     
     textstyle:{
-      marginTop:10,
-      fontSize:30,
+      marginTop:20,
+      fontSize:40,
       justifyContent:"flex-start",
       fontFamily: 'opensans',
       color:"white",
     },
     logo:{
       position:"absolute",
-      top:50,
+      top:120,
       alignItems:"center",
+      
     },
     loginpage:{
       flex:1,

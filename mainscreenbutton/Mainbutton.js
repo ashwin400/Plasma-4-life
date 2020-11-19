@@ -1,11 +1,14 @@
 
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Mainbutton({name,onPress,style,textstyle}) {
     return (
-    <TouchableOpacity onPress={onPress} >
+    <TouchableOpacity onPress={onPress}  >
+    
     <View style={[styles.container,style]} >
+    
       <Text style={[styles.text,textstyle]}>{name}</Text>
     </View>
     </TouchableOpacity>
@@ -22,7 +25,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         padding:15,
-        marginVertical:15,
+       
         elevation:60,
         
         

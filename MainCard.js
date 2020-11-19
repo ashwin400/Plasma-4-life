@@ -6,13 +6,13 @@ import { useFonts } from 'expo-font'
 import { AppLoading } from 'expo';
 import Mainbutton from './mainscreenbutton/Mainbutton';
 import DropDownPicker from 'react-native-dropdown-picker';
-import RNPickerSelect from 'react-native-picker-select';
+
 
 
 export default function MainCard({title}){
     const [fontsLoaded] = useFonts({'montserrat':  require('./Montserrat-Regular.ttf'),})
     const [value, setValue] = useState(null);
-    const [items, setItems] = useState();
+    const [items, setItems] = useState([]);
     
     if (!fontsLoaded) {
         return <AppLoading />;
@@ -24,7 +24,8 @@ export default function MainCard({title}){
     </Text>
     <Box name="Enter Your Location"/>
     
-    <RNPickerSelect
+
+    <DropDownPicker
     items={[
         {label: 'O+',value: 'o+',},
         {label: 'O-',value: 'o-',},
@@ -35,21 +36,31 @@ export default function MainCard({title}){
         {label: 'B-', value: 'b-',},
         {label: 'B+',  value: 'b+',}
     ]}
-    
-    
-    //containerStyle={{height: "20%",marginTop:10,width:"95%",alignSelf:"center",}}
+    style={{
+    borderTopLeftRadius: 20, borderTopRightRadius: 20,
+    borderBottomLeftRadius: 20, borderBottomRightRadius: 20
+}}
+    defaultValue={value}
+    containerStyle={{height: "20%",width:"95%",alignSelf:"center",marginTop:10}}
     placeholder="Select Blood group"
+    onChangeList={(items, callback) => {
+        new Promise((resolve, reject) => resolve(setItems(items)))
+            .then(() => callback())
+            .catch(() => {});
+    }}
     
-    
-    
-    onValueChange={(value) => console.log(value)}
+    onChangeItem={item => setValue(item.value)}
     />
-  
+   
+   <View style={{marginTop:15}}>
+
     <Mainbutton 
     name="Search" 
     textstyle={{color:"white"}}
-    style={{backgroundColor:"#800000",alignSelf:"center",}}
+    style={{backgroundColor:"#651c36",alignSelf:"center",}}
+    
     />
+   </View>
 
     </View>
     );
@@ -65,7 +76,7 @@ let deviceWidth = Dimensions.get('window').width
         width:0.9*deviceWidth,
         height:0.27*deviceHeight,
         borderRadius:40,
-        marginTop:40,
+        marginTop:10,
         elevation:80,
         padding:15,
         }
