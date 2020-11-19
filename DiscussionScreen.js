@@ -9,9 +9,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 export default function Discussion(){
     return(
-        <View style={{flex:1,justifyContent:"center"}}>
-        <Text style={{alignSelf:"center"}}>
-            Discussion
+        <View style={{flex:1,}}>
+        <Text style={{alignSelf:"center",marginTop:10}}>
+          Requests
         </Text>
         </View>
     );

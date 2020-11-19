@@ -60,12 +60,11 @@ export default function Profile(){
             <View style={{backgroundColor:"#d3d3d3",flex:1}}>
               <Text style={{padding:15,fontSize:18}}>Account</Text>
               <SmallTab
-                name="Elements"
+                name="My Requests"
                
-                onPress={()=>check(user)}
               />
               <SmallTab
-                name="Elements"
+                name="Requested"
               />
               <SmallTab
                 name="Elements"

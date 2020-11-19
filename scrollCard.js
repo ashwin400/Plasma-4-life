@@ -18,7 +18,7 @@ export default function ScrollCard({title,location,bloodgroup}){
       justifyContent:"space-between",
       alignItems:"center"
       }}>
-<View style={{alignItems:"center",paddingLeft:15}}>
+<View style={{alignItems:"center",paddingLeft:15,}}>
 <Text style={{
     fontSize:19,
     

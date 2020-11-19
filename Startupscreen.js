@@ -32,7 +32,7 @@ if (!firebase.apps.length) {
 }
 
 
-function MainScreen({ navigation }){
+function Startscreen({ navigation }){
   const [fontsLoaded] = useFonts({
     'opensans':  require('./OpenSansCondensed-Light.ttf'),})
   if (!fontsLoaded) {
@@ -230,7 +230,7 @@ export default function App({navigation}) {
   return (
     <NavigationContainer>
     <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={MainScreen} options={{title:'',headerStyle: {
+        <Stack.Screen name="Home" component={Startscreen} options={{title:'',headerStyle: {
             backgroundColor: '#800000',}}}/>
         <Stack.Screen name="Login" component={LoginScreen} options={{title:'',headerStyle: {
             backgroundColor: '#800000',}}}/>

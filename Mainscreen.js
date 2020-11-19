@@ -1,12 +1,15 @@
 import 'react-native-gesture-handler';
 import React, { Component,useState } from 'react';
-import { Dimensions,SafeAreaView,StyleSheet, Text, View, TouchableOpacity,FlatList,StatusBar } from 'react-native';
+import { Dimensions,SafeAreaView,StyleSheet, Text, View, TouchableOpacity,FlatList,StatusBar,Animated, } from 'react-native';
 import Box from './box';
 import Mainbutton from './mainscreenbutton/Mainbutton';
 import { AppLoading } from 'expo';
 import { useFonts } from 'expo-font'
 import DropDownPicker from 'react-native-dropdown-picker';
 import ScrollCard from "./scrollCard"
+
+import MainCard from "./MainCard"
+import Carousel from 'react-native-snap-carousel';
 
 const data = [
   {
@@ -48,6 +51,17 @@ const data = [
   
 ];
 
+const carddata=[
+  {
+    title:"Find a donor",
+    id: '3ac68afc-c605-48d3-48-fbd1aa57f63',
+  },
+  {
+    title:"Requests",
+    id: '3ac68afc-c605-48d3-48-fbd9aa57f63',
+  }
+];
+
 export default function Mainscreen({navigation}){
   const [value, setValue] = useState(null);
   const [items, setItems] = useState();
@@ -57,6 +71,12 @@ export default function Mainscreen({navigation}){
     title={item.title}
     location={item.Location}
     bloodgroup={item.BloodType}
+     />
+  );
+  const renderCard = ({ item }) => (
+    <MainCard
+    title={item.title}
+    
      />
   );
   
@@ -71,44 +91,18 @@ export default function Mainscreen({navigation}){
    <View style={{backgroundColor:"white",flex: 1,}}>
     <StatusBar backgroundColor="#800000"/>
     <View style={styles.redstyle}>
-    <View style={styles.mainpage}>
-    <Text style={{color:"black",fontSize:20,paddingLeft:20,fontFamily:"montserrat"}}>
-      Find a Donor
-    </Text>
-    <Box name="Enter Your Location"/>
-    
-    <DropDownPicker
-    items={[
-        {label: 'O+',value: 'O+',},
-        {label: 'O-',value: 'O-',},
-        {label: 'A+', value: 'A+',},
-        {label: 'A-', value: 'A-',},
-        {label: 'AB+',  value: 'AB+',},
-        {label: 'AB-',  value: 'AB-',},
-        {label: 'B-', value: 'B-',},
-        {label: 'B+',  value: 'B+',}
-    ]}
-    
-    onChangeList={(items, callback) => {
-        new Promise((resolve, reject) => resolve(setItems(items)))
-            .then(() => callback())
-            .catch(() => {});
-    }}
-    containerStyle={{height: "20%",marginTop:10,width:"95%",alignSelf:"center",}}
-    placeholder="Select Blood group"
-    defaultValue={value}
-    onChangeItem={item => setValue(item.value)}
-    />
-  
+    <View style={{ height:0.4*deviceHeight,}}>
 
-    <Mainbutton 
-    name="Search" 
-    textstyle={{color:"white"}}
-    style={{backgroundColor:"#800000",alignSelf:"center",}}
-    />
+    <Carousel
+              
+              data={carddata}
+              renderItem={renderCard}
+              sliderWidth={deviceWidth}
+              itemWidth={0.9*deviceWidth}
+            />
+    </View>
+    </View>
     
-    </View>
-    </View>
 
     <SafeAreaView style={{flex:1,marginTop:70,marginBottom:10}}>
 
@@ -133,18 +127,7 @@ let deviceHeight = Dimensions.get('window').height
 let deviceWidth = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
-    mainpage:{
-    alignSelf:"center",
-    backgroundColor:"white",
-    width:0.9*deviceWidth,
-    height:0.27*deviceHeight,
-    borderRadius:40,
-    marginTop:40,
-    elevation:80,
-    padding:15,
-    
-    
-   },
+   
     redstyle:{
       width:"100%",
       height:0.25*deviceHeight,

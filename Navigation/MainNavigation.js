@@ -1,13 +1,11 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { Octicons } from '@expo/vector-icons';
-import { createBottomTabNavigator, createAppContainer } from '@react-navigation/bottom-tabs';  
+import { createBottomTabNavigator,} from '@react-navigation/bottom-tabs';  
 import Profile from "../Profilescreen"
 import { MaterialIcons } from '@expo/vector-icons';
 import Mainscreen from "../Mainscreen";
 import Discussion from "../DiscussionScreen";
 import HomePage from "../HomeScreen";
-import { NavigationContainer } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -30,10 +28,10 @@ export default function BottomNav(){
         ) }
       }
       />
-      <Tab.Screen name="Discussion" component={Discussion} 
+      <Tab.Screen name="Requests" component={Discussion} 
         options={{
         tabBarIcon:()=>(
-          <Octicons name="comment-discussion" size={24} color="black" />
+          <AntDesign name="swap" size={24} color="black" />
         ) }
       }
       />
