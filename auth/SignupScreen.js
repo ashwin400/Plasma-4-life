@@ -87,6 +87,7 @@ export default function RegisterScreen(){
     borderColor={'#b76c94'}
     borderHeight={3}
     inputPadding={16}
+    labelStyle={{fontFamily: 'opensans',fontSize:18}}
     onChangeText={text => setFirst(text)}
     style={{marginTop:10}}
   />
@@ -96,6 +97,7 @@ export default function RegisterScreen(){
     borderColor={'#b76c94'}
     borderHeight={3}
     inputPadding={16}
+    labelStyle={{fontFamily: 'opensans',fontSize:18}}
     onChangeText={text => setEmail(text)}
     style={{marginTop:10}}
   />
@@ -105,6 +107,7 @@ export default function RegisterScreen(){
     borderColor={'#b76c94'}
     borderHeight={3}
     inputPadding={16}
+    labelStyle={{fontFamily: 'opensans',fontSize:18}}
     onChangeText={text => setPassword(text)}
     secureTextEntry={true}
     style={{marginTop:10}}
@@ -115,6 +118,7 @@ export default function RegisterScreen(){
     borderHeight={3}
     inputPadding={16}
     onChangeText={text => setPno(text)}
+    labelStyle={{fontFamily: 'opensans',fontSize:18}}
     keyboardType="numeric"
     maxLength={10}
     style={{marginTop:10}}

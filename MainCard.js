@@ -24,7 +24,7 @@ export default function MainCard({title}){
     </Text>
     <Box name="Enter Your Location"/>
     
-
+        
     <DropDownPicker
     items={[
         {label: 'O+',value: 'o+',},
@@ -38,7 +38,7 @@ export default function MainCard({title}){
     ]}
     style={{
     borderTopLeftRadius: 20, borderTopRightRadius: 20,
-    borderBottomLeftRadius: 20, borderBottomRightRadius: 20
+    borderBottomLeftRadius: 20, borderBottomRightRadius: 20,
 }}
     defaultValue={value}
     containerStyle={{height: "20%",width:"95%",alignSelf:"center",marginTop:10}}
@@ -48,19 +48,21 @@ export default function MainCard({title}){
             .then(() => callback())
             .catch(() => {});
     }}
-    
+    dropDownStyle={{height:100,zIndex:2}}
     onChangeItem={item => setValue(item.value)}
     />
    
-   <View style={{marginTop:15}}>
-
+   
+    <View style={{flex:1,justifyContent:"center",zIndex:0}}>
     <Mainbutton 
     name="Search" 
     textstyle={{color:"white"}}
     style={{backgroundColor:"#651c36",alignSelf:"center",}}
     
     />
-   </View>
+
+    </View>
+   
 
     </View>
     );

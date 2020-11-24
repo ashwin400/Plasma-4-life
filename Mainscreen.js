@@ -12,6 +12,7 @@ import MainCard from "./MainCard"
 import Carousel , { Pagination } from 'react-native-snap-carousel';
 import Dots from 'react-native-dots-pagination';
 
+
 const data = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -80,9 +81,7 @@ export default function Mainscreen({navigation}){
     
      />
   );
-  
-
-    
+   
   
     if (!fontsLoaded) {
     return <AppLoading />;
@@ -104,8 +103,8 @@ export default function Mainscreen({navigation}){
           right: 0,
           top: 0,
           height:"100%",
-          borderBottomLeftRadius:20,
-          borderBottomRightRadius:20
+          borderBottomLeftRadius:30,
+          borderBottomRightRadius:30
         }}/>
     <View style={{ height:0.4*deviceHeight,}}>
     <Dots 
@@ -133,7 +132,7 @@ export default function Mainscreen({navigation}){
     </View>
     
 
-    <SafeAreaView style={{flex:1,marginTop:70,marginBottom:10}}>
+    <SafeAreaView style={{flex:1,marginTop:70,}}>
 
     <FlatList
     data={data}
@@ -161,8 +160,8 @@ const styles = StyleSheet.create({
       width:"100%",
       height:0.25*deviceHeight,
       backgroundColor:"#800000",
-      borderBottomLeftRadius:20,
-      borderBottomRightRadius:20,
+      borderBottomLeftRadius:30,
+      borderBottomRightRadius:30,
     },
     
     

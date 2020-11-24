@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { createBottomTabNavigator,} from '@react-navigation/bottom-tabs';  
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Profile from "../Profilescreen"
 import { MaterialIcons } from '@expo/vector-icons';
 import Mainscreen from "../Mainscreen";
@@ -10,11 +10,11 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 export default function BottomNav(){
-  const Tab = createBottomTabNavigator();
+  const Tab = createMaterialBottomTabNavigator();
 
   return (
     
-    <Tab.Navigator initialRouteName="Main">
+    <Tab.Navigator initialRouteName="Main" barStyle={{ backgroundColor: '#ffffff' }}>
       <Tab.Screen name="Main" component={HomePage}
       options={{
         tabBarIcon:()=>(

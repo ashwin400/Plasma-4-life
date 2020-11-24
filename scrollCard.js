@@ -1,11 +1,16 @@
 import React from "react"
-import { View ,Text} from 'react-native';
+import { View ,Text,Dimensions} from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Feather } from '@expo/vector-icons';
 
+
 export default function ScrollCard({title,location,bloodgroup}){
+    
+let deviceHeight = Dimensions.get('window').height
+let deviceWidth = Dimensions.get('window').width
+
     return(
 <View style={{
       width:"90%",
@@ -19,23 +24,27 @@ export default function ScrollCard({title,location,bloodgroup}){
       alignItems:"center",
       elevation:3
       
+      
       }}>
      
-<View style={{alignItems:"center",paddingLeft:15,}}>
+<View style={{alignItems:"center",height:"50%",width:"30%",justifyContent:"center"}}>
 <Text style={{
     fontSize:19,
-    
+    fontFamily:"montserrat"
 }}>
 {title}
 </Text>
-<Text style={{fontSize:12}}>
+<Text style={{fontSize:12,fontFamily:"montserrat"}}>
     {location}
+</Text>
+<Text style={{fontSize:10,fontFamily:"montserrat"}}>
+    Gender
 </Text>
 </View>
 <View style={{alignItems:"center"}}>
-<View style={{height:50,backgroundColor:"#9f1721",width:40,position:"absolute",bottom:0,justifyContent:"center",borderRadius:15,alignItems:"center",}}>
+<View style={{height:deviceHeight>800?60:50,backgroundColor:"#708090",width:deviceHeight>800?50:40,justifyContent:"center",borderRadius:15,alignItems:"center",position:"absolute",top:deviceHeight>800?-10:0,right:-20,elevation:40,}}>
 <Feather name="droplet" size={24} color="black" />
-<Text>
+<Text style={{fontFamily:"montserrat"}}>
     {bloodgroup}
 </Text>
 
@@ -48,7 +57,7 @@ onPress={()=>console.log("Request details")}
 >
 
 <AntDesign name="retweet" size={25} color="black" />
-<Text>
+<Text style={{fontFamily:"montserrat"}}>
     Request
 </Text>
 </TouchableOpacity>

@@ -44,7 +44,7 @@ export default function LoginScreen({navigation}){
         return;
       }
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){
-     firebase.auth().signInWithEmailAndPassword(email, password) 
+     firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
       
         var user = firebase.auth().currentUser;
         if(user){
@@ -57,7 +57,7 @@ export default function LoginScreen({navigation}){
         }
   
     
-      }).catch(function(error){
+      })}).catch(function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
         if (errorCode === 'auth/wrong-password') {
@@ -101,15 +101,19 @@ export default function LoginScreen({navigation}){
     borderColor={'#b76c94'}
     borderHeight={3}
     inputPadding={16}
+    labelStyle={{fontFamily: 'opensans',fontSize:18}}
     onChangeText={text => setEmail(text)}
+    inputStyle={{fontSize:16}}
   />
   <Hoshi
      label={'Password'}
+     labelStyle={{fontFamily: 'opensans',fontSize:16}}
      style={{marginTop:10}}
     borderColor={'#b76c94'}
     borderHeight={3}
     inputPadding={16}
-   
+   inputStyle={{fontSize:16}}
+
     onChangeText={text => setPassword(text)}
     secureTextEntry={true}
   />

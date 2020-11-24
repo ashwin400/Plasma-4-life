@@ -5,7 +5,8 @@ import BottomNav from "./Navigation/MainNavigation"
 import Startnav from "./Navigation/StartNavigation"
 import { NavigationContainer } from '@react-navigation/native';
 import AuthContext from "./authentication/context"
-
+import { Entypo } from '@expo/vector-icons'; 
+import { useFonts } from 'expo-font'
 
 var firebaseConfig = {
   apiKey: "AIzaSyDIRm59fQWScI63HFDEQQWRI1LXP61O7-U",
@@ -22,6 +23,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
+
 export default function App() {
   const [user,setUser]=useState();
     
@@ -31,7 +33,7 @@ export default function App() {
       
     <NavigationContainer>
 
-      {user ? <BottomNav/>: <Startnav/>}
+      {user ?  <Startnav/>:<BottomNav/>}
     </NavigationContainer>
     </AuthContext.Provider>
     
