@@ -9,13 +9,11 @@ export default function NewsCard({article}){
     return(
 <View>
 
-<Text style={{alignSelf:"center",fontSize:deviceHeight>800?24:20,paddingVertical:10,fontFamily:"ptsans"}}>
-      Latest Covid News
-      </Text>
+
 <View style={{
       width:"90%",
       backgroundColor:"#d3d3d3",
-      height:"45%",
+      height:100,
       alignSelf:"center",
       borderRadius:25,
       marginBottom: 10,
@@ -27,7 +25,8 @@ export default function NewsCard({article}){
       }}>
       
      <Text style={{alignSelf:"center",fontSize:deviceHeight>800?21:17,padding:10,fontFamily:"ptsans"}}>
-        {article[0]}
+      {article.title}
+        
       </Text>
  </View>
  

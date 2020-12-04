@@ -33,7 +33,7 @@ export default function App() {
       
     <NavigationContainer>
 
-      {user ?  <Startnav/>:<BottomNav/>}
+      {user ?  <BottomNav/>:<Startnav/>}
     </NavigationContainer>
     </AuthContext.Provider>
     

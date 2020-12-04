@@ -28,13 +28,13 @@ export default function BottomNav(){
         ) }
       }
       />
-      <Tab.Screen name="Requests" component={Discussion} 
+      {/* <Tab.Screen name="Requests" component={Discussion} 
         options={{
         tabBarIcon:()=>(
           <AntDesign name="swap" size={24} color="black" />
         ) }
       }
-      />
+      /> */}
       <Tab.Screen name="Profile" component={Profile} 
       options={{
         tabBarIcon:()=>(

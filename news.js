@@ -7,10 +7,10 @@ export default function GetNews(){
   let deviceHeight = Dimensions.get('window').height
   let deviceWidth = Dimensions.get('window').width
     const [articles,setArticles]=useState([])
-    const [refreshing,setRefreshing]=useState(true)
+    const [refreshing,setRefreshing]=useState(false)
     
     useEffect(() => {
-      fetchnews()
+     
     })
   
     function fetchnews(){
@@ -37,14 +37,19 @@ export default function GetNews(){
          />
       );
     return (
-     
+      <View style={{flex:1,padding:3}}>
+
+      <Text style={{alignSelf:"center",fontSize:deviceHeight>800?24:20,paddingVertical:10,fontFamily:"ptsans"}}>
+      Latest Covid News
+      </Text>
         <FlatList
             data={articles}
             renderItem={renderItem}
             keyExtractor={item => item.url}
             refreshing={refreshing}
-            onRefresh={()=>handleRefresh()}
+            onRefresh={handleRefresh}
         />
+      </View>
      
     );
 }
