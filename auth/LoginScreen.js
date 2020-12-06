@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
-import React, { Component, useContext, useState } from 'react';
+import React, { Component, useContext, useState,useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, View ,ToastAndroid,} from 'react-native';
+import AsyncStorage from "@react-native-community/async-storage"
 import Mainbutton from '../mainscreenbutton/Mainbutton';
 import { Input } from 'react-native-elements';
 import * as firebase from 'firebase';
@@ -8,6 +9,23 @@ import AuthContext from "../authentication/context"
 import { LinearGradient } from 'expo-linear-gradient';
 import { Hoshi } from 'react-native-textinput-effects';
 
+async function storeToken(user) {
+  try {
+     await AsyncStorage.setItem("userData", JSON.stringify(user));
+  } catch (error) {
+    console.log("Something went wrong", error);
+  }
+}
+async function getToken(user) {
+  try {
+    let userData = await AsyncStorage.getItem("userData");
+    let data = JSON.parse(userData);
+    authContext.setUser(data);
+    console.log(data);
+  } catch (error) {
+    console.log("Something went wrong", error);
+  }
+}
 
 var firebaseConfig = {
   apiKey: "AIzaSyDIRm59fQWScI63HFDEQQWRI1LXP61O7-U",
@@ -30,6 +48,10 @@ export default function LoginScreen({navigation}){
   const [password,setPassword]=useState();
   const authContext=useContext(AuthContext);
 
+
+  useEffect(() => {
+    getToken() 
+  })
   function loginuser(email,password){
     
     try{
@@ -51,6 +73,7 @@ export default function LoginScreen({navigation}){
           ToastAndroid.show("Success",ToastAndroid.SHORT)
           console.log(user);
           authContext.setUser(user);
+          storeToken(JSON.stringify(user));
         }
         else{
           ToastAndroid.show("Email ID/Password incorrect",ToastAndroid.SHORT)

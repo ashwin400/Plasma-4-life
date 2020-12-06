@@ -92,7 +92,7 @@ export default function Mainscreen({navigation}){
     
      
    <View style={{backgroundColor:"white",flex: 1,}}>
-    <StatusBar backgroundColor="#c31432"/>
+    <StatusBar style="auto"/>
     <View style={styles.redstyle}>
     <LinearGradient
         // Background Linear Gradient
